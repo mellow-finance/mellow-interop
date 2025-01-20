@@ -54,6 +54,9 @@ abstract contract Core is ICore, Ownable, Initializable {
         }
 
         adapter.sendMessage{value: requiredValue}(messageType, fullMessage, options, extraOptions);
+        if (requiredValue != value) {
+            Address.sendValue(payable(adapter.gasReceiver()), value - requiredValue);
+        }
     }
 
     function __init_Core(address adapter_) internal onlyInitializing {
