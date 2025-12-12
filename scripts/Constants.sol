@@ -34,6 +34,7 @@ library Constants {
     uint256 public constant BSC_CHAINID = 56;
     uint256 public constant MANTA_CHAINID = 169;
     uint256 public constant GALILEO_CHAINID = 16602;
+    uint256 public constant BASE_CHAINID = 84532;
 
     function endpointId(uint256 chainId) internal pure returns (uint32) {
         if (chainId == HOLESKY_CHAINID) {
@@ -58,6 +59,8 @@ library Constants {
             return 30217;
         } else if (chainId == GALILEO_CHAINID) {
             return 40428;
+        } else if (chainId == BASE_CHAINID) {
+            return 30184; // https://docs.layerzero.network/v2/deployments/deployed-contracts?chains=base
         }
         revert("Unsupported chain");
     }
@@ -89,6 +92,8 @@ library Constants {
             return 0x1a44076050125825900e736c501f859c50fE728c;
         } else if (chainId == GALILEO_CHAINID) {
             return 0x3aCAAf60502791D199a5a5F0B173D78229eBFe32;
+        } else if (chainId == BASE_CHAINID) {
+            return 0x1a44076050125825900e736c501f859c50fE728c;
         }
         revert("Unsupported chain");
     }
@@ -120,6 +125,8 @@ library Constants {
             return 0xD1654C656455E40E2905E96b6B91088AC2B362a2;
         } else if (chainId == GALILEO_CHAINID) {
             return 0x45841dd1ca50265Da7614fC43A361e526c0e6160;
+        } else if (chainId == BASE_CHAINID) {
+            return 0xB5320B0B3a13cC860893E2Bd79FCd7e13484Dda2;
         }
         revert("Unsupported chain");
     }
@@ -151,6 +158,8 @@ library Constants {
             return 0xC1EC25A9e8a8DE5Aa346f635B33e5B74c4c081aF;
         } else if (chainId == GALILEO_CHAINID) {
             return 0xd682ECF100f6F4284138AA925348633B0611Ae21;
+        } else if (chainId == BASE_CHAINID) {
+            return 0xc70AB6f32772f59fBfc23889Caf4Ba3376C84bAf;
         }
         revert("Unsupported chain");
     }
@@ -172,6 +181,8 @@ library Constants {
             return 0x5979D7b546E38E414F7E9822514be443A4800529;
         } else if (chainId == LISK_CHAINID) {
             return 0x76D8de471F54aAA87784119c60Df1bbFc852C415;
+        } else if (chainId == BASE_CHAINID) {
+            return 0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452;
         }
         revert("Unsupported chain");
     }
@@ -233,6 +244,18 @@ library Constants {
             } else if (block.chainid == SEPOLIA_CHAINID) {
                 address[] memory dvns = new address[](1);
                 dvns[0] = 0x8eebf8b423B73bFCa51a1Db4B7354AA0bFCA9193; // LayerZero labs
+                return dvns;
+            }
+        } else if (sourceEndpointId == endpointId(BASE_CHAINID)) {
+            if (block.chainid == BASE_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x9e059a54699a285714207b43B055483E78FAac25; // LayerZero labs
+                dvns[1] = 0xDd7B5E1dB4AaFd5C8EC3b764eFB8ed265Aa5445B; // BWare
+                return dvns;
+            } else if (block.chainid == ETHEREUM_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x589dEDbD617e0CBcB916A9223F4d1300c294236b; // LayerZero labs
+                dvns[1] = 0x7a23612F07d81F16B26cF0b5a4C3eca0E8668df2; // BWare
                 return dvns;
             }
         }
@@ -310,6 +333,13 @@ library Constants {
     function wog() internal view returns (address) {
         if (block.chainid == GALILEO_CHAINID) {
             return 0x1Cd0690fF9a693f5EF2dD976660a8dAFc81A109c;
+        }
+        revert("Unsupported chain");
+    }
+
+    function thq() internal view returns (address) {
+        if (block.chainid == BASE_CHAINID) {
+            return 0x0b2558bdBC7FFEC0f327fB3579c23daBD1699706;
         }
         revert("Unsupported chain");
     }
@@ -469,6 +499,54 @@ library Constants {
 
     function OG_MAINNET_VAULT_PROXY_ADMIN() internal pure returns (address) {
         return 0x3622B8C85C9a4A2ecda005349045FB80912D38f7; // both galileo+sepolia
+    }
+    /* 
+        Base 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D (2/4 THQ)
+        ETH  0x0cc2Cea583Ce27c4669288B57f34e93dc1609Ec1 (2/4 THQ)
+        Base+ETH 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24 (5/8 Mellow+THQ)
+
+        Curator Wallet 1: 0x96ACD1963B5D65a87E4402909e585AF06c93d3C9 (EOA THQ)
+        Curator Wallet 2: 0xc81114691B006ae2195D7507490965bEaDb24024 (EOA THQ)
+     */
+
+    function THQ_BASE_VAULT_ADMIN() internal pure returns (address) {
+        return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
+    }
+
+    function THQ_BASE_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
+    }
+
+    function THQ_MAINNET_VAULT_ADMIN() internal pure returns (address) {
+        return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
+    }
+
+    function THQ_MAINNET_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
+    }
+
+    function THQ_BASE_ORACLE_UPDATER() internal pure returns (address) {
+        return 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D;
+    }
+
+    function THQ_BASE_CURATOR_ADMIN() internal pure returns (address) {
+        return 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D;
+    }
+
+    function THQ_BASE_ORACLE_UPDATER() internal pure returns (address) {
+        return 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D;
+    }
+
+    function THQ_BASE_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0x96ACD1963B5D65a87E4402909e585AF06c93d3C9;
+    }
+
+    function THQ_MAINNET_CURATOR_ADMIN() internal pure returns (address) {
+        return 0x0cc2Cea583Ce27c4669288B57f34e93dc1609Ec1;
+    }
+
+    function THQ_MAINNET_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0x96ACD1963B5D65a87E4402909e585AF06c93d3C9;
     }
 
     function sendGas() internal pure returns (uint128) {
