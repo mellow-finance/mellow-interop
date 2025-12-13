@@ -17,8 +17,6 @@ contract Deploy is Script {
         address TargetMultiVault;
     }
 
-    address claimer = Constants.OG_MAINNET_CURATOR_OPERATOR();
-
     function run() external {
         uint256 deployerPk = uint256(bytes32(vm.envBytes("HOT_DEPLOYER")));
         address deployer = vm.addr(deployerPk);
@@ -33,24 +31,22 @@ contract Deploy is Script {
         });
 
         vm.startBroadcast(deployerPk);
-        {
-            InitTarget.init(
-                InitTarget.InitParams({
-                    targetCore: TargetCore(coreDeployment.TargetCore),
-                    sourceEid: Constants.endpointId(coreDeployment.sourceChainId),
-                    sourceCoreAddress: coreDeployment.SourceCore,
-                    mellowOFT: MellowOFT(coreDeployment.TargetMellowOFT),
-                    mellowOFTAdapter: coreDeployment.SourceMellowOFTAdapter,
-                    deployer: deployer,
-                    vaultAdmin: Constants.THQ_MAINNET_VAULT_ADMIN(),
-                    vaultProxyAdmin: Constants.THQ_MAINNET_VAULT_PROXY_ADMIN(),
-                    curatorAdmin: Constants.THQ_MAINNET_CURATOR_ADMIN(),
-                    curatorOperator: Constants.THQ_MAINNET_CURATOR_OPERATOR(),
-                    vault: coreDeployment.TargetMultiVault,
-                    claimer: claimer
-                })
-            );
-        }
+        InitTarget.init(
+            InitTarget.InitParams({
+                targetCore: TargetCore(coreDeployment.TargetCore),
+                sourceEid: Constants.endpointId(coreDeployment.sourceChainId),
+                sourceCoreAddress: coreDeployment.SourceCore,
+                mellowOFT: MellowOFT(coreDeployment.TargetMellowOFT),
+                mellowOFTAdapter: coreDeployment.SourceMellowOFTAdapter,
+                deployer: deployer,
+                vaultAdmin: Constants.THQ_MAINNET_VAULT_ADMIN(),
+                vaultProxyAdmin: Constants.THQ_MAINNET_VAULT_PROXY_ADMIN(),
+                curatorAdmin: Constants.THQ_MAINNET_CURATOR_ADMIN(),
+                curatorOperator: Constants.THQ_MAINNET_CURATOR_OPERATOR(),
+                vault: coreDeployment.TargetMultiVault,
+                claimer: 0x25024a3017B8da7161d8c5DCcF768F8678fB5802
+            })
+        );
 
         vm.stopBroadcast();
         //revert("ok");

@@ -15,8 +15,8 @@ contract Deploy is Script {
     }
 
     uint256 public constant EPOCH_DURATION = 1 days;
-    uint256 public constant ORACLE_MAX_AGE = 21 days;
-    uint256 public constant WITHDRAWAL_DELAY = 22 days;
+    uint256 public constant ORACLE_MAX_AGE = 14 days;
+    uint256 public constant WITHDRAWAL_DELAY = 15 days;
 
     function run() external {
         uint256 deployerPk = uint256(bytes32(vm.envBytes("HOT_DEPLOYER")));
@@ -31,29 +31,27 @@ contract Deploy is Script {
         });
 
         vm.startBroadcast(deployerPk);
-        {
-            InitSource.init(
-                InitSource.InitParams({
-                    deployer: deployer,
-                    vaultAdmin: Constants.THQ_BASE_VAULT_ADMIN(),
-                    vaultProxyAdmin: Constants.THQ_BASE_VAULT_PROXY_ADMIN(),
-                    oracleUpdater: Constants.THQ_BASE_ORACLE_UPDATER(),
-                    curatorAdmin: Constants.THQ_BASE_CURATOR_ADMIN(),
-                    curatorOperator: Constants.THQ_BASE_CURATOR_OPERATOR(),
-                    sourceCore: SourceCore(coreDeployment.SourceCore),
-                    targetEid: Constants.endpointId(coreDeployment.targetChainId),
-                    targetCoreAddress: coreDeployment.TargetCore,
-                    mellowOFTAdapter: MellowOFTAdapter(coreDeployment.SourceMellowOFTAdapter),
-                    mellowOFT: MellowOFT(coreDeployment.TargetMellowOFT),
-                    name: "Staked THQ",
-                    symbol: "sTHQ",
-                    epochDuration: EPOCH_DURATION,
-                    limit: 100 * 10 ** 6 ether, // 100 millions sTHQ limit
-                    oracleMaxAge: ORACLE_MAX_AGE,
-                    withdrawalDelay: WITHDRAWAL_DELAY
-                })
-            );
-        }
+        InitSource.init(
+            InitSource.InitParams({
+                deployer: deployer,
+                vaultAdmin: Constants.THQ_BASE_VAULT_ADMIN(),
+                vaultProxyAdmin: Constants.THQ_BASE_VAULT_PROXY_ADMIN(),
+                oracleUpdater: Constants.THQ_BASE_ORACLE_UPDATER(),
+                curatorAdmin: Constants.THQ_BASE_CURATOR_ADMIN(),
+                curatorOperator: Constants.THQ_BASE_CURATOR_OPERATOR(),
+                sourceCore: SourceCore(coreDeployment.SourceCore),
+                targetEid: Constants.endpointId(coreDeployment.targetChainId),
+                targetCoreAddress: coreDeployment.TargetCore,
+                mellowOFTAdapter: MellowOFTAdapter(coreDeployment.SourceMellowOFTAdapter),
+                mellowOFT: MellowOFT(coreDeployment.TargetMellowOFT),
+                name: "Staked THQ",
+                symbol: "sTHQ",
+                epochDuration: EPOCH_DURATION,
+                limit: 1e8 ether, // 100 millions sTHQ limit
+                oracleMaxAge: ORACLE_MAX_AGE,
+                withdrawalDelay: WITHDRAWAL_DELAY
+            })
+        );
         vm.stopBroadcast();
         // revert("ok");
     }

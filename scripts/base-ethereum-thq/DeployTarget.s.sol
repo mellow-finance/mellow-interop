@@ -12,7 +12,13 @@ contract Deploy is Script {
 
         vm.startBroadcast(deployerPk);
         (TargetCore targetCoreSingleton, TransparentUpgradeableProxy targetCore, MellowOFT mellowOFT) = DeployTarget
-            .deploy(Constants.THQ_MAINNET_VAULT_PROXY_ADMIN(), deployer, bytes32(uint256(0x0)), "Theoriq Token", "THQ");
+            .deploy(
+            Constants.THQ_MAINNET_VAULT_PROXY_ADMIN(),
+            deployer,
+            bytes32(uint256(0x0)),
+            "Base Omnichain Theoriq Token (Internal)",
+            "BaseTHQInternal"
+        );
 
         vm.stopBroadcast();
 

@@ -50,7 +50,7 @@ contract Deploy is Script {
                 })
             );
         }
-        
+
         console2.log("Vault Proxy admin MANTA       %s", Constants.MANTA_SOURCE_VAULT_PROXY_ADMIN());
         console2.log("Vault Admin MANTA             %s", Constants.MANTA_SOURCE_VAULT_ADMIN());
         console2.log("Curator Admin MANTA           %s", Constants.MANTA_SOURCE_CURATOR());
