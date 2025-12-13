@@ -24,10 +24,10 @@ contract Deploy is Script {
 
         CoreDeployment memory coreDeployment = CoreDeployment({
             targetChainId: Constants.ETHEREUM_CHAINID,
-            SourceCore: address(0), // [Base] SourceCore
-            SourceMellowOFTAdapter: address(0), // [Base] MellowOFTAdapter
-            TargetCore: address(0), // [Ethereum] TargetCore
-            TargetMellowOFT: address(0) // [Ethereum] MellowOFT
+            SourceCore: 0xbe515939fBA844A7063f119225012B072cE40D0c, // [Base] SourceCore
+            SourceMellowOFTAdapter: 0x25Aef70C4387f883F5657F2B83dE4d20aFADa217, // [Base] MellowOFTAdapter
+            TargetCore: 0xA2598154978aBE38f017617972ED989283975fDD, // [Ethereum] TargetCore
+            TargetMellowOFT: 0xA9402c888102fc725902caf5B243300bE24B77EF // [Ethereum] MellowOFT
         });
 
         vm.startBroadcast(deployerPk);
@@ -38,7 +38,7 @@ contract Deploy is Script {
                 vaultProxyAdmin: Constants.THQ_BASE_VAULT_PROXY_ADMIN(),
                 oracleUpdater: Constants.THQ_BASE_ORACLE_UPDATER(),
                 curatorAdmin: Constants.THQ_BASE_CURATOR_ADMIN(),
-                curatorOperator: Constants.THQ_BASE_CURATOR_OPERATOR(),
+                curatorOperator: Constants.THQ_BASE_CURATOR_OPERATOR_1(),
                 sourceCore: SourceCore(coreDeployment.SourceCore),
                 targetEid: Constants.endpointId(coreDeployment.targetChainId),
                 targetCoreAddress: coreDeployment.TargetCore,

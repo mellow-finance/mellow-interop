@@ -34,7 +34,7 @@ library Constants {
     uint256 public constant BSC_CHAINID = 56;
     uint256 public constant MANTA_CHAINID = 169;
     uint256 public constant GALILEO_CHAINID = 16602;
-    uint256 public constant BASE_CHAINID = 84532;
+    uint256 public constant BASE_CHAINID = 8453;
 
     function endpointId(uint256 chainId) internal pure returns (uint32) {
         if (chainId == HOLESKY_CHAINID) {
@@ -525,10 +525,6 @@ library Constants {
         return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
     }
 
-    function THQ_BASE_ORACLE_UPDATER() internal pure returns (address) {
-        return 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D;
-    }
-
     function THQ_BASE_CURATOR_ADMIN() internal pure returns (address) {
         return 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D;
     }
@@ -537,16 +533,24 @@ library Constants {
         return 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D;
     }
 
-    function THQ_BASE_CURATOR_OPERATOR() internal pure returns (address) {
+    function THQ_BASE_CURATOR_OPERATOR_1() internal pure returns (address) {
         return 0x96ACD1963B5D65a87E4402909e585AF06c93d3C9;
+    }
+
+    function THQ_BASE_CURATOR_OPERATOR_2() internal pure returns (address) {
+        return 0xc81114691B006ae2195D7507490965bEaDb24024;
     }
 
     function THQ_MAINNET_CURATOR_ADMIN() internal pure returns (address) {
         return 0x0cc2Cea583Ce27c4669288B57f34e93dc1609Ec1;
     }
 
-    function THQ_MAINNET_CURATOR_OPERATOR() internal pure returns (address) {
+    function THQ_MAINNET_CURATOR_OPERATOR_1() internal pure returns (address) {
         return 0x96ACD1963B5D65a87E4402909e585AF06c93d3C9;
+    }
+
+    function THQ_MAINNET_CURATOR_OPERATOR_2() internal pure returns (address) {
+        return 0xc81114691B006ae2195D7507490965bEaDb24024;
     }
 
     function sendGas() internal pure returns (uint128) {

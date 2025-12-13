@@ -26,6 +26,6 @@ contract Deploy is Script {
         console2.log("TargetCore THQ %s;", address(targetCore));
         console2.log("MellowOFT THQ %s.", address(mellowOFT));
 
-        //revert("ok");
+        // revert("ok");
     }
 }
