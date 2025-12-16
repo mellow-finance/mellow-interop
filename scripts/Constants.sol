@@ -204,24 +204,23 @@ library Constants {
             if (block.chainid == BSC_TESTNET_CHAINID) {
                 address[] memory dvns = new address[](2);
                 dvns[0] = 0x0eE552262f7B562eFcED6DD4A7e2878AB897d405; // LayerZero labs
-                dvns[1] = 0x35fa068eC18631719A7f6253710Ba29aB5C5F3b7; // BWare
+                dvns[1] = 0x6334290b7b4a365f3c0e79c85b1b42f078db78e4; // Nethermind
                 return dvns;
             } else if (block.chainid == HOLESKY_CHAINID) {
-                address[] memory dvns = new address[](2);
+                address[] memory dvns = new address[](1);
                 dvns[0] = 0x3E43f8ff0175580f7644DA043071c289DDf98118; // LayerZero labs
-                dvns[1] = 0xD0D47C34937DdbeBBe698267a6BbB1dacE51198D; // BWare
                 return dvns;
             }
         } else if (sourceEndpointId == endpointId(BSC_CHAINID)) {
             if (block.chainid == BSC_CHAINID) {
                 address[] memory dvns = new address[](2);
                 dvns[0] = 0xfD6865c841c2d64565562fCc7e05e619A30615f0; // LayerZero labs
-                dvns[1] = 0xfE1cD27827E16b07E61A4AC96b521bDB35e00328; // BWare
+                dvns[1] = 0x31f748a368a893bdb5abb67ec95f232507601a73; // Nethermind
                 return dvns;
             } else if (block.chainid == ETHEREUM_CHAINID) {
                 address[] memory dvns = new address[](2);
                 dvns[0] = 0x589dEDbD617e0CBcB916A9223F4d1300c294236b; // LayerZero labs
-                dvns[1] = 0x7a23612F07d81F16B26cF0b5a4C3eca0E8668df2; // BWare
+                dvns[1] = 0xa59ba433ac34d2927232918ef5b2eaafcf130ba5; // Nethermind
                 return dvns;
             }
         } else if (sourceEndpointId == endpointId(MANTA_CHAINID)) {
@@ -250,12 +249,12 @@ library Constants {
             if (block.chainid == BASE_CHAINID) {
                 address[] memory dvns = new address[](2);
                 dvns[0] = 0x9e059a54699a285714207b43B055483E78FAac25; // LayerZero labs
-                dvns[1] = 0xDd7B5E1dB4AaFd5C8EC3b764eFB8ed265Aa5445B; // BWare
+                dvns[1] = 0xcd37ca043f8479064e10635020c65ffc005d36f6; // Nethermind
                 return dvns;
             } else if (block.chainid == ETHEREUM_CHAINID) {
                 address[] memory dvns = new address[](2);
                 dvns[0] = 0x589dEDbD617e0CBcB916A9223F4d1300c294236b; // LayerZero labs
-                dvns[1] = 0x7a23612F07d81F16B26cF0b5a4C3eca0E8668df2; // BWare
+                dvns[1] = 0xa59ba433ac34d2927232918ef5b2eaafcf130ba5; // Nethermind
                 return dvns;
             }
         }
