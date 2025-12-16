@@ -28,6 +28,13 @@ library Constants {
     uint256 public constant SEPOLIA_CHAINID = 11155111;
     uint256 public constant OPTIMISM_CHAINID = 10;
     uint256 public constant ARBITRUM_CHAINID = 42161;
+    uint256 public constant LISK_CHAINID = 1135;
+    uint256 public constant FRAX_CHAINID = 252;
+    uint256 public constant BSC_TESTNET_CHAINID = 97;
+    uint256 public constant BSC_CHAINID = 56;
+    uint256 public constant MANTA_CHAINID = 169;
+    uint256 public constant GALILEO_CHAINID = 16602;
+    uint256 public constant BASE_CHAINID = 8453;
 
     function endpointId(uint256 chainId) internal pure returns (uint32) {
         if (chainId == HOLESKY_CHAINID) {
@@ -40,6 +47,20 @@ library Constants {
             return 30111;
         } else if (chainId == ARBITRUM_CHAINID) {
             return 30110;
+        } else if (chainId == LISK_CHAINID) {
+            return 30321;
+        } else if (chainId == FRAX_CHAINID) {
+            return 30255;
+        } else if (chainId == BSC_TESTNET_CHAINID) {
+            return 40102;
+        } else if (chainId == BSC_CHAINID) {
+            return 30102;
+        } else if (chainId == MANTA_CHAINID) {
+            return 30217;
+        } else if (chainId == GALILEO_CHAINID) {
+            return 40428;
+        } else if (chainId == BASE_CHAINID) {
+            return 30184; // https://docs.layerzero.network/v2/deployments/deployed-contracts?chains=base
         }
         revert("Unsupported chain");
     }
@@ -58,6 +79,20 @@ library Constants {
         } else if (chainId == OPTIMISM_CHAINID) {
             return 0x1a44076050125825900e736c501f859c50fE728c;
         } else if (chainId == ARBITRUM_CHAINID) {
+            return 0x1a44076050125825900e736c501f859c50fE728c;
+        } else if (chainId == LISK_CHAINID) {
+            return 0x6F475642a6e85809B1c36Fa62763669b1b48DD5B;
+        } else if (chainId == FRAX_CHAINID) {
+            return 0x1a44076050125825900e736c501f859c50fE728c;
+        } else if (chainId == BSC_TESTNET_CHAINID) {
+            return 0x6EDCE65403992e310A62460808c4b910D972f10f;
+        } else if (chainId == BSC_CHAINID) {
+            return 0x1a44076050125825900e736c501f859c50fE728c;
+        } else if (chainId == MANTA_CHAINID) {
+            return 0x1a44076050125825900e736c501f859c50fE728c;
+        } else if (chainId == GALILEO_CHAINID) {
+            return 0x3aCAAf60502791D199a5a5F0B173D78229eBFe32;
+        } else if (chainId == BASE_CHAINID) {
             return 0x1a44076050125825900e736c501f859c50fE728c;
         }
         revert("Unsupported chain");
@@ -78,6 +113,20 @@ library Constants {
             return 0x1322871e4ab09Bc7f5717189434f97bBD9546e95;
         } else if (chainId == ARBITRUM_CHAINID) {
             return 0x975bcD720be66659e3EB3C0e4F1866a3020E493A;
+        } else if (chainId == LISK_CHAINID) {
+            return 0xC39161c743D0307EB9BCc9FEF03eeb9Dc4802de7;
+        } else if (chainId == FRAX_CHAINID) {
+            return 0x377530cdA84DFb2673bF4d145DCF0C4D7fdcB5b6;
+        } else if (chainId == BSC_TESTNET_CHAINID) {
+            return 0x55f16c442907e86D764AFdc2a07C2de3BdAc8BB7;
+        } else if (chainId == BSC_CHAINID) {
+            return 0x9F8C645f2D0b2159767Bd6E0839DE4BE49e823DE;
+        } else if (chainId == MANTA_CHAINID) {
+            return 0xD1654C656455E40E2905E96b6B91088AC2B362a2;
+        } else if (chainId == GALILEO_CHAINID) {
+            return 0x45841dd1ca50265Da7614fC43A361e526c0e6160;
+        } else if (chainId == BASE_CHAINID) {
+            return 0xB5320B0B3a13cC860893E2Bd79FCd7e13484Dda2;
         }
         revert("Unsupported chain");
     }
@@ -97,6 +146,20 @@ library Constants {
             return 0x3c4962Ff6258dcfCafD23a814237B7d6Eb712063;
         } else if (chainId == ARBITRUM_CHAINID) {
             return 0x7B9E184e07a6EE1aC23eAe0fe8D6Be2f663f05e6;
+        } else if (chainId == LISK_CHAINID) {
+            return 0xe1844c5D63a9543023008D332Bd3d2e6f1FE1043;
+        } else if (chainId == FRAX_CHAINID) {
+            return 0x8bC1e36F015b9902B54b1387A4d733cebc2f5A4e;
+        } else if (chainId == BSC_TESTNET_CHAINID) {
+            return 0x188d4bbCeD671A7aA2b5055937F79510A32e9683;
+        } else if (chainId == BSC_CHAINID) {
+            return 0xB217266c3A98C8B2709Ee26836C98cf12f6cCEC1;
+        } else if (chainId == MANTA_CHAINID) {
+            return 0xC1EC25A9e8a8DE5Aa346f635B33e5B74c4c081aF;
+        } else if (chainId == GALILEO_CHAINID) {
+            return 0xd682ECF100f6F4284138AA925348633B0611Ae21;
+        } else if (chainId == BASE_CHAINID) {
+            return 0xc70AB6f32772f59fBfc23889Caf4Ba3376C84bAf;
         }
         revert("Unsupported chain");
     }
@@ -116,12 +179,377 @@ library Constants {
             return 0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb;
         } else if (chainId == ARBITRUM_CHAINID) {
             return 0x5979D7b546E38E414F7E9822514be443A4800529;
+        } else if (chainId == LISK_CHAINID) {
+            return 0x76D8de471F54aAA87784119c60Df1bbFc852C415;
+        } else if (chainId == BASE_CHAINID) {
+            return 0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452;
         }
         revert("Unsupported chain");
     }
 
+    function requiredDVNs(uint32 sourceEndpointId) internal view returns (address[] memory) {
+        if (sourceEndpointId == endpointId(FRAX_CHAINID)) {
+            if (block.chainid == FRAX_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x26cD5aBaDf7eC3f0F02b48314bfcA6b2342cddD4; // Frax
+                dvns[1] = 0xcCE466a522984415bC91338c232d98869193D46e; // LayerZero labs
+                return dvns;
+            } else if (block.chainid == ETHEREUM_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x38654142F5E672Ae86a1b21523AAfC765E6A1e08; // Frax
+                dvns[1] = 0x589dEDbD617e0CBcB916A9223F4d1300c294236b; // LayerZero labs
+                return dvns;
+            }
+        } else if (sourceEndpointId == endpointId(BSC_TESTNET_CHAINID)) {
+            if (block.chainid == BSC_TESTNET_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x0eE552262f7B562eFcED6DD4A7e2878AB897d405; // LayerZero labs
+                dvns[1] = 0x6334290b7b4a365f3c0e79c85b1b42f078db78e4; // Nethermind
+                return dvns;
+            } else if (block.chainid == HOLESKY_CHAINID) {
+                address[] memory dvns = new address[](1);
+                dvns[0] = 0x3E43f8ff0175580f7644DA043071c289DDf98118; // LayerZero labs
+                return dvns;
+            }
+        } else if (sourceEndpointId == endpointId(BSC_CHAINID)) {
+            if (block.chainid == BSC_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0xfD6865c841c2d64565562fCc7e05e619A30615f0; // LayerZero labs
+                dvns[1] = 0x31f748a368a893bdb5abb67ec95f232507601a73; // Nethermind
+                return dvns;
+            } else if (block.chainid == ETHEREUM_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x589dEDbD617e0CBcB916A9223F4d1300c294236b; // LayerZero labs
+                dvns[1] = 0xa59ba433ac34d2927232918ef5b2eaafcf130ba5; // Nethermind
+                return dvns;
+            }
+        } else if (sourceEndpointId == endpointId(MANTA_CHAINID)) {
+            if (block.chainid == MANTA_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x31F748a368a893Bdb5aBB67ec95F232507601A73; // Horizen
+                dvns[1] = 0xA09dB5142654e3eB5Cf547D66833FAe7097B21C3; // LayerZero labs
+                return dvns;
+            } else if (block.chainid == ETHEREUM_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x380275805876Ff19055EA900CDb2B46a94ecF20D; // Horizen
+                dvns[1] = 0x589dEDbD617e0CBcB916A9223F4d1300c294236b; // LayerZero labs
+                return dvns;
+            }
+        } else if (sourceEndpointId == endpointId(GALILEO_CHAINID)) {
+            if (block.chainid == GALILEO_CHAINID) {
+                address[] memory dvns = new address[](1);
+                dvns[0] = 0xa78A78a13074eD93aD447a26Ec57121f29E8feC2; //default DVN
+                return dvns;
+            } else if (block.chainid == SEPOLIA_CHAINID) {
+                address[] memory dvns = new address[](1);
+                dvns[0] = 0x8eebf8b423B73bFCa51a1Db4B7354AA0bFCA9193; // LayerZero labs
+                return dvns;
+            }
+        } else if (sourceEndpointId == endpointId(BASE_CHAINID)) {
+            if (block.chainid == BASE_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x9e059a54699a285714207b43B055483E78FAac25; // LayerZero labs
+                dvns[1] = 0xcd37ca043f8479064e10635020c65ffc005d36f6; // Nethermind
+                return dvns;
+            } else if (block.chainid == ETHEREUM_CHAINID) {
+                address[] memory dvns = new address[](2);
+                dvns[0] = 0x589dEDbD617e0CBcB916A9223F4d1300c294236b; // LayerZero labs
+                dvns[1] = 0xa59ba433ac34d2927232918ef5b2eaafcf130ba5; // Nethermind
+                return dvns;
+            }
+        }
+        revert("Unsupported chain");
+    }
+
+    function manta(uint256 chainId) internal pure returns (address) {
+        if (chainId == MANTA_CHAINID) {
+            return 0x95CeF13441Be50d20cA4558CC0a27B601aC544E5;
+        }
+        revert("Unsupported chain");
+    }
+
+    function manta() internal view returns (address) {
+        return manta(block.chainid);
+    }
+
+    function cyc(uint256 chainId) internal pure returns (address) {
+        if (chainId == BSC_TESTNET_CHAINID) {
+            return 0xD944A5e7E9D22F04C57f6aa8aD45Fb51D35F6920;
+        } else if (chainId == BSC_CHAINID) {
+            return 0x5845684b49aEf79A5c0F887f50401C247dca7AC6;
+        }
+        revert("Unsupported chain");
+    }
+
+    function cyc() internal view returns (address) {
+        return cyc(block.chainid);
+    }
+
+    function frax(uint256 chainId) internal pure returns (address) {
+        if (chainId == FRAX_CHAINID) {
+            return 0xFc00000000000000000000000000000000000002;
+        }
+        revert("Unsupported chain");
+    }
+
+    function frax() internal view returns (address) {
+        return frax(block.chainid);
+    }
+
+    function mbtc(uint256 chainId) internal pure returns (address) {
+        if (chainId == LISK_CHAINID) {
+            return 0x9BFA177621119e64CecbEabE184ab9993E2ef727;
+        }
+        revert("Unsupported chain");
+    }
+
+    function mbtc() internal view returns (address) {
+        return mbtc(block.chainid);
+    }
+
+    function lsk(uint256 chainId) internal pure returns (address) {
+        if (chainId == LISK_CHAINID) {
+            return 0xac485391EB2d7D88253a7F1eF18C37f4242D1A24;
+        }
+        revert("Unsupported chain");
+    }
+
+    function lsk() internal view returns (address) {
+        return lsk(block.chainid);
+    }
+
     function wsteth() internal view returns (address) {
         return wsteth(block.chainid);
+    }
+
+    function solv() internal view returns (address) {
+        if (block.chainid == BSC_CHAINID) {
+            return 0xabE8E5CabE24Cb36df9540088fD7cE1175b9bc52;
+        }
+        revert("Unsupported chain");
+    }
+
+    function wog() internal view returns (address) {
+        if (block.chainid == GALILEO_CHAINID) {
+            return 0x1Cd0690fF9a693f5EF2dD976660a8dAFc81A109c;
+        }
+        revert("Unsupported chain");
+    }
+
+    function thq() internal view returns (address) {
+        if (block.chainid == BASE_CHAINID) {
+            return 0x0b2558bdBC7FFEC0f327fB3579c23daBD1699706;
+        }
+        revert("Unsupported chain");
+    }
+
+    function LISK_ADMIN() internal pure returns (address) {
+        return 0xa62243c7a36e74d8280781242a3B0e019ce74E64;
+    }
+
+    function LISK_PROXY_ADMIN() internal pure returns (address) {
+        return 0xC7e8b00a61adB658c49D2d8a377FC44572e9ECb5;
+    }
+
+    function LISK_ORACLE_UPDATER() internal pure returns (address) {
+        return 0x62339BF5c4EB32EFAC9482F0277D68957A822641;
+    }
+
+    function LISK_CURATOR_ADMIN() internal pure returns (address) {
+        return 0xE86399fE6d7007FdEcb08A2ee1434Ee677a04433;
+    }
+
+    function LISK_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0x5DD19228DC1b6EEaFF0BC649e25f83cc957B92Ed;
+    }
+
+    function ETHEREUM_ADMIN() internal pure returns (address) {
+        return 0xa62243c7a36e74d8280781242a3B0e019ce74E64;
+    }
+
+    function ETHEREUM_PROXY_ADMIN() internal pure returns (address) {
+        return 0xC7e8b00a61adB658c49D2d8a377FC44572e9ECb5;
+    }
+
+    function ETHEREUM_CURATOR_ADMIN() internal pure returns (address) {
+        return 0xE86399fE6d7007FdEcb08A2ee1434Ee677a04433;
+    }
+
+    function ETHEREUM_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0x5DD19228DC1b6EEaFF0BC649e25f83cc957B92Ed;
+    }
+
+    function FRAX_ADMIN() internal pure returns (address) {
+        return 0xD6dCc17AF74217356cbA56aa485b3f0fe8437896;
+    }
+
+    function FRAX_PROXY_ADMIN() internal pure returns (address) {
+        return 0xd2D2a9d446591833b32b3FAD2f2b3810Cd98b34f;
+    }
+
+    function FRAX_ORACLE_UPDATER() internal pure returns (address) {
+        return 0xF32fD742608c237D5a377838fa69837584cA9676;
+    }
+
+    function FRAX_CURATOR_ADMIN() internal pure returns (address) {
+        return 0xBE8e7c5E750124eA690E387eB6eF32e723fD051d;
+    }
+
+    function FRAX_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0x5DD19228DC1b6EEaFF0BC649e25f83cc957B92Ed;
+    }
+
+    function MANTA_TARGET_VAULT_ADMIN() internal pure returns (address) {
+        return 0x0e5c716aA17106E6f6B74b2c0E1A015B643CE308;
+    }
+
+    function MANTA_TARGET_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0xD4aFEe5cCe62128F3ACb67202e7Ae85fD3888f2A;
+    }
+
+    function MANTA_TARGET_CURATOR() internal pure returns (address) {
+        return 0xBEE16D4331B0AD6aa60E07bA55427b56E0f578fb;
+    }
+
+    function MANTA_TARGET_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0xf47aE7d4bb095B0aafF59f3849346d39F770C8E3;
+    }
+
+    function MANTA_SOURCE_VAULT_ADMIN() internal pure returns (address) {
+        return 0xdfCD6a517c86EdE52EF9C7f34ad9E918943ECe67;
+    }
+
+    function MANTA_SOURCE_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x30a7C7726dBA087C9af3547BDe7b2953DFdf06bB;
+    }
+
+    function MANTA_SOURCE_CURATOR() internal pure returns (address) {
+        return 0x175427A2BDa468293eC2F5beE81060C1bd5D586e;
+    }
+
+    function MANTA_SOURCE_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0xf47aE7d4bb095B0aafF59f3849346d39F770C8E3;
+    }
+
+    function MANTA_SOURCE_ORACLE_UPDATER() internal pure returns (address) {
+        return 0x9C807F6f6D785e31f4AF84722cd5097AB5A87d78;
+    }
+
+    function BSC_TESTNET_VAULT_ADMIN() internal pure returns (address) {
+        return 0x27051Af764F55A4A8E6E3Eb1507c43E116B5826c;
+    }
+
+    function BSC_TESTNET_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x94D9358C32965dBaA42f1a178C539ED8F9B2ac61;
+    }
+
+    function HOLESKY_CYCLE_VAULT_ADMIN() internal pure returns (address) {
+        return 0xC6255428adec8a692e233b311A95cB74DeBDeA22;
+    }
+
+    function HOLESKY_CYCLE_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0xfCF94C817924998025115727Ebdc2962ee62Cb60;
+    }
+
+    function CYCLE_TESTNET_CURATOR() internal pure returns (address) {
+        return 0x59D609BAa4245aEe8988346ADaA884eb461e02c5;
+    }
+
+    function CYCLE_MAINNET_CURATOR() internal pure returns (address) {
+        return 0x759D4335cb712aa188935C2bD3Aa6D205aC61305;
+    }
+
+    function CYCLE_MAINNET_VAULT_ADMIN() internal pure returns (address) {
+        return 0xE47EaC8C81FF1157360E3508eDA0D31824775E47;
+    }
+
+    function CYCLE_MAINNET_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x0CF4a2Db7734aABffD15b34fbe8A760B4EEEB9F4;
+    }
+
+    function SOLV_MAINNET_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0x0c2Bc4d2698820e12E6eBe863E7b9E2650CD5b7D; // curator operator bsc+mainnet
+    }
+
+    function SOLV_MAINNET_CURATOR() internal pure returns (address) {
+        return 0x0c2Bc4d2698820e12E6eBe863E7b9E2650CD5b7D; // curator admin bsc+mainnet
+    }
+
+    function SOLV_MAINNET_VAULT_ADMIN() internal pure returns (address) {
+        return 0x258Ea2008C1aae005F75F1D43D4dC51d5c6c46F0; // both bsc+mainnet
+    }
+
+    function SOLV_MAINNET_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x7377344FCD33844541cb6966ffa7FcAB05641183; // both bsc+mainnet
+    }
+
+    // 0x3622B8C85C9a4A2ecda005349045FB80912D38f7
+    function OG_MAINNET_CURATOR_OPERATOR() internal pure returns (address) {
+        return 0x3622B8C85C9a4A2ecda005349045FB80912D38f7; // curator operator galileo+sepolia
+    }
+
+    function OG_MAINNET_CURATOR() internal pure returns (address) {
+        return 0x3622B8C85C9a4A2ecda005349045FB80912D38f7; // curator admin galileo+sepolia
+    }
+
+    function OG_MAINNET_VAULT_ADMIN() internal pure returns (address) {
+        return 0x3622B8C85C9a4A2ecda005349045FB80912D38f7; // both galileo+sepolia
+    }
+
+    function OG_MAINNET_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x3622B8C85C9a4A2ecda005349045FB80912D38f7; // both galileo+sepolia
+    }
+    /* 
+        Base 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D (2/4 THQ)
+        ETH  0x0cc2Cea583Ce27c4669288B57f34e93dc1609Ec1 (2/4 THQ)
+        Base+ETH 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24 (5/8 Mellow+THQ)
+
+        Curator Wallet 1: 0x96ACD1963B5D65a87E4402909e585AF06c93d3C9 (EOA THQ)
+        Curator Wallet 2: 0xc81114691B006ae2195D7507490965bEaDb24024 (EOA THQ)
+     */
+
+    function THQ_BASE_VAULT_ADMIN() internal pure returns (address) {
+        return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
+    }
+
+    function THQ_BASE_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
+    }
+
+    function THQ_MAINNET_VAULT_ADMIN() internal pure returns (address) {
+        return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
+    }
+
+    function THQ_MAINNET_VAULT_PROXY_ADMIN() internal pure returns (address) {
+        return 0x0526E260950A4E592c3e3Eaa0438F1FD88526E24;
+    }
+
+    function THQ_BASE_CURATOR_ADMIN() internal pure returns (address) {
+        return 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D;
+    }
+
+    function THQ_BASE_ORACLE_UPDATER() internal pure returns (address) {
+        return 0xAb0fDA5ee74D1B9BFF3d41Ce8931E2EbeFF9e92D;
+    }
+
+    function THQ_BASE_CURATOR_OPERATOR_1() internal pure returns (address) {
+        return 0x96ACD1963B5D65a87E4402909e585AF06c93d3C9;
+    }
+
+    function THQ_BASE_CURATOR_OPERATOR_2() internal pure returns (address) {
+        return 0xc81114691B006ae2195D7507490965bEaDb24024;
+    }
+
+    function THQ_MAINNET_CURATOR_ADMIN() internal pure returns (address) {
+        return 0x0cc2Cea583Ce27c4669288B57f34e93dc1609Ec1;
+    }
+
+    function THQ_MAINNET_CURATOR_OPERATOR_1() internal pure returns (address) {
+        return 0x96ACD1963B5D65a87E4402909e585AF06c93d3C9;
+    }
+
+    function THQ_MAINNET_CURATOR_OPERATOR_2() internal pure returns (address) {
+        return 0xc81114691B006ae2195D7507490965bEaDb24024;
     }
 
     function sendGas() internal pure returns (uint128) {
